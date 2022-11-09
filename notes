@@ -1,0 +1,13 @@
+Use HSV vs RGB
+	- Hue: 
+	- Saturatin: how intense a color is
+	- Value: how dark or how light a color is
+in opencv
+	- use a mask
+	- binaray array that only allows specific pixels to be displayed
+declare two arrays
+	- [h s v]
+TASK:
+	- find upper and lower bound of color
+	- ORANGE
+	- Use mss and google 
