@@ -11,3 +11,21 @@ TASK:
 	- find upper and lower bound of color
 	- ORANGE
 	- Use mss and google 
+
+Blurring Task notes:
+	
+	Denoising:
+	- basic approach
+		unweighted average: replacing each pixel with the avg of all the neighbors
+		Assumes: 
+		- pixels in a neighborhood area resemble each other (entropy of pixels is low)
+		- neighboring pixels have same importance
+		- noise is scattered in independed way
+
+		weighted avg: same idea as above but some pixels have more importance
+
+		
+Resources:
+- Image blurring / denoising
+https://medium.com/mlearning-ai/noise-and-filtering-in-vision-3bebe42ff00b
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6069080/
