@@ -1,7 +1,7 @@
 from asyncore import read
 import cv2
 import numpy as np
-import mss
+
 
 def stackImages(scale,imgArray,lables=[]):
     sizeW= imgArray[0][0].shape[1]
@@ -63,20 +63,20 @@ def showValues(img,valNames, valRanges,vals,option):
         cv2.putText(img, isOption+x+" "+str(a)+" - "+str(vals[i])+" - "+str(b), (20, (i+1)*20 + 100), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0,255,0), 2)
         i+=1
         
-def mss_screencap():
-    with mss.mss() as sct:#starts mss
-        while 'Screen capturing':
-            monitor_1 = sct.monitors[1]#monitor_1 represents screen monitor
-            sct_img = np.array(sct.grab(monitor_1))#grabs input from screen
-            img = cv2.cvtColor(np.array(sct_img), cv2.COLOR_BGRA2BGR)#converts screen input to BGR format
-            h = img.shape[0] #get height of image
-            w = img.shape[1] #get width of image
-            img=cv2.resize(img, (int(w/2),int(h/2)))#resize image so it won't take up a huge portion of the screen
-            cv2.imshow('img',img) # show img on window named 'img'
-            k=cv2.waitKey(27) & 0xff# checks for key press
-            if k==ord('q'):# if key pressed is q, exit
-                break
-    cv2.destroyAllWindows()
+# def mss_screencap():
+#     with mss.mss() as sct:#starts mss
+#         while 'Screen capturing':
+#             monitor_1 = sct.monitors[1]#monitor_1 represents screen monitor
+#             sct_img = np.array(sct.grab(monitor_1))#grabs input from screen
+#             img = cv2.cvtColor(np.array(sct_img), cv2.COLOR_BGRA2BGR)#converts screen input to BGR format
+#             h = img.shape[0] #get height of image
+#             w = img.shape[1] #get width of image
+#             img=cv2.resize(img, (int(w/2),int(h/2)))#resize image so it won't take up a huge portion of the screen
+#             cv2.imshow('img',img) # show img on window named 'img'
+#             k=cv2.waitKey(27) & 0xff# checks for key press
+#             if k==ord('q'):# if key pressed is q, exit
+#                 break
+#     cv2.destroyAllWindows()
 
 def color_detect():
     cap = cv2.VideoCapture(0)
@@ -95,7 +95,7 @@ def color_detect():
     # maybe values hue 7 - 21; sat 100 - 255; val 100 - 255
     names = ["hue1", "sat1", "value1", "hue2", "sat2", "value2"]
     values = [5, 100, 100, 16, 255, 255]
-    ranges =[[0, 100], [0, 255], [0, 255], [0, 100], [0, 255], [0, 255]]
+    ranges = [[0, 100], [0, 255], [0, 255], [0, 100], [0, 255], [0, 255]]
     option = [0]
 
     while cap.isOpened():
